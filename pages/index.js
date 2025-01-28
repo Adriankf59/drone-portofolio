@@ -1,9 +1,15 @@
 // pages/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const HomePage = () => {
+  const [selectedService, setSelectedService] = useState(null);
+
+  const handleSelectService = (service) => {
+    setSelectedService(service);
+  };
+
   return (
     <div>
       <Header />
@@ -11,21 +17,29 @@ const HomePage = () => {
       <section className="max-w-7xl mx-auto my-10">
         <h2 className="text-2xl font-bold my-5">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 shadow-lg rounded">
-            <img className="w-full h-32 object-cover rounded" src="/path_to_mapping_image" alt="Mapping" />
-            <h3 className="text-xl font-semibold mt-4">Mapping</h3>
-            <p>Detailed aerial mapping for urban planning and development.</p>
-          </div>
-          <div className="p-4 shadow-lg rounded">
-            <img className="w-full h-32 object-cover rounded" src="/path_to_inspection_image" alt="Inspection" />
-            <h3 className="text-xl font-semibold mt-4">Inspection</h3>
-            <p>Comprehensive inspection services for infrastructure and assets.</p>
-          </div>
-          <div className="p-4 shadow-lg rounded">
-            <img className="w-full h-32 object-cover rounded" src="/path_to_photography_image" alt="Event Photography" />
-            <h3 className="text-xl font-semibold mt-4">Event Photography</h3>
-            <p>Capture your events from unique and stunning perspectives.</p>
-          </div>
+          {[
+            { title: 'Mapping', description: 'Detailed aerial mapping for urban planning and development.', image: '/images/DJI_0595.JPG' },
+            { title: 'Inspection', description: 'Comprehensive inspection services for infrastructure and assets.', image: '/images/DJI_0643.JPG' },
+            { title: 'Event Photography', description: 'Capture your events from unique and stunning perspectives.', image: '/images/DJI_0651.JPG' },
+          ].map((service) => (
+            <div
+              key={service.title}
+              onClick={() => handleSelectService(service.title)}
+              className={`flex flex-col p-4 shadow-lg rounded bg-white cursor-pointer border-2 ${
+                selectedService === service.title ? 'border-blue-500' : 'border-transparent'
+              }`}
+            >
+              <div className="overflow-hidden rounded">
+                <img
+                  className="w-full h-48 object-cover" // Adjusting the height constraint
+                  src={service.image}
+                  alt={service.title}
+                />
+              </div>
+              <h3 className="text-xl text-black font-semibold mt-4">{service.title}</h3>
+              <p className="mt-2 text-black">{service.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
