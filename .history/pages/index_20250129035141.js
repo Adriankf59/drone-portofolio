@@ -1,16 +1,21 @@
 // pages/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const HomePage = () => {
+  const [selectedService, setSelectedService] = useState(null);
+
+  const handleSelectService = (service) => {
+    setSelectedService(service);
+  };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen">  {/* Applied background color */}
       <Header />
       {/* Main content goes here */}
       <section className="max-w-7xl mx-auto my-10">
-        <h2 className="text-2xl text-black font-bold my-5">Our Services</h2>
+        <h2 className="text-2xl te font-bold my-5">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             { title: 'Mapping', description: 'Detailed aerial mapping for urban planning and development.', image: '/images/DJI_0595.JPG' },
@@ -19,7 +24,10 @@ const HomePage = () => {
           ].map((service) => (
             <div
               key={service.title}
-              className="flex flex-col p-4 shadow-lg rounded bg-white cursor-pointer border-2 transition-transform transform hover:scale-105 hover:shadow-xl border-transparent"
+              onClick={() => handleSelectService(service.title)}
+              className={`flex flex-col p-4 shadow-lg rounded bg-white cursor-pointer border-2 ${
+                selectedService === service.title ? 'border-blue-500' : 'border-transparent'
+              }`}
             >
               <div className="overflow-hidden rounded">
                 <img
