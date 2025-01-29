@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid';
@@ -9,8 +9,6 @@ const HomePage = () => {
   const [portfolioPage, setPortfolioPage] = useState(0);
   const pageSize = 2;
 
-  const servicesRef = useRef(null);
-
   const services = [
     { title: 'Mapping', description: 'Detailed aerial mapping for urban planning and development.', image: '/images/DJI_0595.JPG' },
     { title: 'Inspection', description: 'Comprehensive inspection services for infrastructure and assets.', image: '/images/DJI_0643.JPG' },
@@ -20,7 +18,7 @@ const HomePage = () => {
   const portfolios = [
     { id: 1, title: 'Urban Project', description: 'A comprehensive urban planning project using our mapping services.', image: '/images/urban.jpg' },
     { id: 2, title: 'Bridge Inspection', description: 'A thorough inspection of a major bridge using advanced techniques.', image: '/images/brige.jpg' },
-    { id: 3, title: 'Wedding Coverage', description: 'Stunning aerial photography for a beautiful wedding.', image: '/images/wedding.jpg' },
+    { id: 3, title: 'Wedding Coverage', description: 'Stunning aerial photography for a beautiful wedding.', image: '/images/portfolio3.jpg' },
   ];
 
   const handleNextPage = () => {
@@ -32,12 +30,6 @@ const HomePage = () => {
   const handlePrevPage = () => {
     if (portfolioPage > 0) {
       setPortfolioPage(portfolioPage - 1);
-    }
-  };
-
-  const handleGetStartedClick = () => {
-    if (servicesRef.current) {
-      servicesRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -76,14 +68,13 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            onClick={handleGetStartedClick}
           >
             Get Started
           </motion.button>
         </motion.div>
       </div>
 
-      <section ref={servicesRef} className="max-w-7xl mx-auto my-10">
+      <section className="max-w-7xl mx-auto my-10">
         <h2 className="text-2xl text-black font-bold my-5">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {services.map((service) => (

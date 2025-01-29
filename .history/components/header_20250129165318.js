@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md">
       <nav className="max-w-7xl mx-auto flex justify-between items-center p-5">
         <h1 className="text-xl text-black">Uber Aerials</h1>
         <ul className="flex space-x-4">

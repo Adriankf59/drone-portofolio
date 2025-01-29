@@ -20,7 +20,7 @@ const HomePage = () => {
   const portfolios = [
     { id: 1, title: 'Urban Project', description: 'A comprehensive urban planning project using our mapping services.', image: '/images/urban.jpg' },
     { id: 2, title: 'Bridge Inspection', description: 'A thorough inspection of a major bridge using advanced techniques.', image: '/images/brige.jpg' },
-    { id: 3, title: 'Wedding Coverage', description: 'Stunning aerial photography for a beautiful wedding.', image: '/images/wedding.jpg' },
+    { id: 3, title: 'Wedding Coverage', description: 'Stunning aerial photography for a beautiful wedding.', image: '/images/portfolio3.jpg' },
   ];
 
   const handleNextPage = () => {
