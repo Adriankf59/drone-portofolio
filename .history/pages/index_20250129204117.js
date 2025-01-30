@@ -103,7 +103,7 @@ const HomePage = () => {
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.4 } }}
+          animate={{ opacity: 1, transition: { duration: 0. } }}
           exit={{ opacity: 0 }}
         >
           {currentPortfolios.map((portfolio) => (

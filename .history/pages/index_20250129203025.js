@@ -72,7 +72,7 @@ const HomePage = () => {
             Explore the World from Above
           </motion.h2>
           <motion.button
-            className="mt-4 py-2 px-6 bg-blue-500 text-white rounded-[15px] transition-transform duration-300 hover:scale-105 hover:bg-blue-600"
+            className="mt-4 py-2 px-6 bg-blue-500 text-white rounded-[15px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -103,7 +103,7 @@ const HomePage = () => {
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.4 } }}
+          animate={{ opacity: 1, transition: { duration: 0.8 } }}
           exit={{ opacity: 0 }}
         >
           {currentPortfolios.map((portfolio) => (

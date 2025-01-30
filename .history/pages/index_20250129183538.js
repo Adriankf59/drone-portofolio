@@ -72,7 +72,7 @@ const HomePage = () => {
             Explore the World from Above
           </motion.h2>
           <motion.button
-            className="mt-4 py-2 px-6 bg-blue-500 text-white rounded-[15px] transition-transform duration-300 hover:scale-105 hover:bg-blue-600"
+            className="mt-4 py-2 px-6 bg-blue-500 text-white rounded-[15px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -100,40 +100,32 @@ const HomePage = () => {
 
       <section className="max-w-7xl mx-auto my-10">
         <h2 className="text-2xl text-black font-bold my-5">Portfolio</h2>
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.4 } }}
-          exit={{ opacity: 0 }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {currentPortfolios.map((portfolio) => (
             <Link href={`/portfolio/${portfolio.id}`} key={portfolio.id}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="flex flex-col p-4 shadow-lg rounded bg-white cursor-pointer border-2 transition-transform transform hover:scale-105 hover:shadow-xl border-transparent"
-              >
-                <div className="h-64 w-full overflow-hidden rounded">
-                  <img className="w-full h-full object-cover" src={portfolio.image} alt={portfolio.title} />
+              <div className="flex flex-col p-4 shadow-lg rounded bg-white cursor-pointer border-2 transition-transform transform hover:scale-105 hover:shadow-xl border-transparent">
+                <div className="overflow-hidden rounded">
+                  <img className="w-full h-48 object-cover" src={portfolio.image} alt={portfolio.title} />
                 </div>
                 <h3 className="text-xl text-black font-semibold mt-4">{portfolio.title}</h3>
                 <p className="mt-2 text-black">{portfolio.description}</p>
-              </motion.div>
+              </div>
             </Link>
           ))}
-        </motion.div>
+        </div>
         <div className="flex justify-between mt-4">
-          <motion.button
-            whileHover={{ scale: 1.1, color: "#ffffff", backgroundColor: "#4b5563" }}
-            onClick={handlePrevPage}
-            className="flex items-center px-4 py-2 bg-gray-300 rounded transition-all duration-200 disabled:opacity-50"
+          <motion.button 
+            whileHover={{ scale: 1.1, color: "#ffffff", backgroundColor: "#4b5563" }} 
+            onClick={handlePrevPage} 
+            className="flex items-center px-4 py-2 bg-gray-300 rounded transition-all duration-200 disabled:opacity-50" 
             disabled={portfolioPage === 0}>
             <ArrowLeftIcon className="h-6 w-6 mr-2" />
             Previous
           </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1, color: "#ffffff", backgroundColor: "#4b5563" }}
-            onClick={handleNextPage}
-            className="flex items-center px-4 py-2 bg-gray-300 rounded transition-all duration-200 disabled:opacity-50"
+          <motion.button 
+            whileHover={{ scale: 1.1, color: "#ffffff", backgroundColor: "#4b5563" }} 
+            onClick={handleNextPage} 
+            className="flex items-center px-4 py-2 bg-gray-300 rounded transition-all duration-200 disabled:opacity-50" 
             disabled={(portfolioPage + 1) * pageSize >= portfolios.length} >
             Next
             <ArrowRightIcon className="h-6 w-6 ml-2" />

@@ -94,6 +94,28 @@ const Services = () => {
         </form>
       </section>
 
+      <section className="bg-blue-500 text-white py-8">
+        <div className="max-w-7xl mx-auto flex justify-between px-4">
+          <div>
+            <h3 className="font-bold">Quick Links</h3>
+            <ul>
+              <li>Home</li>
+              <li>Services</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-bold">Contact Us</h3>
+            <p>Email: info@skyvision.com</p>
+            <p>Phone: +1 234 567 890</p>
+            <div className="flex space-x-4 mt-2">
+              <a href="#"><img src="/icons/facebook.svg" alt="Facebook" /></a>
+              <a href="#"><img src="/icons/twitter.svg" alt="Twitter" /></a>
+              <a href="#"><img src="/icons/instagram.svg" alt="Instagram" /></a>
+            </div>
+          </div>
+        </div>
+      </section>
       <Footer />
     </div>
   );

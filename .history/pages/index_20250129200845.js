@@ -72,7 +72,7 @@ const HomePage = () => {
             Explore the World from Above
           </motion.h2>
           <motion.button
-            className="mt-4 py-2 px-6 bg-blue-500 text-white rounded-[15px] transition-transform duration-300 hover:scale-105 hover:bg-blue-600"
+            className="mt-4 py-2 px-6 bg-blue-500 text-white rounded-[15px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -103,7 +103,7 @@ const HomePage = () => {
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.4 } }}
+          animate={{ opacity: 1, transition: { duration: 0.8 } }}
           exit={{ opacity: 0 }}
         >
           {currentPortfolios.map((portfolio) => (
@@ -112,8 +112,8 @@ const HomePage = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col p-4 shadow-lg rounded bg-white cursor-pointer border-2 transition-transform transform hover:scale-105 hover:shadow-xl border-transparent"
               >
-                <div className="h-64 w-full overflow-hidden rounded">
-                  <img className="w-full h-full object-cover" src={portfolio.image} alt={portfolio.title} />
+                <div className="overflow-hidden rounded">
+                  <img className="w-full h-4 object-cover" src={portfolio.image} alt={portfolio.title} />
                 </div>
                 <h3 className="text-xl text-black font-semibold mt-4">{portfolio.title}</h3>
                 <p className="mt-2 text-black">{portfolio.description}</p>
